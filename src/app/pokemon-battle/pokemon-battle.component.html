@@ -1,0 +1,86 @@
+<div class="container">
+
+    <div *ngIf="versus" class="anotherBattle">
+        <button mat-flat-button (click)="refresh()" color="warn">Another battle</button>
+
+    </div>
+    <div class="title">
+        <h2>Pokemon Battle</h2>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form (ngSubmit)="fetchPokemon()" #f="ngForm">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+
+                <div class="battleForm">
+
+
+                    <div>
+                        <label for="pokemon"> Fighter 1 </label>
+                        <input style="width: 150px;" type="text" class="form-control" required ngModel name="name" #name="ngModel" [(ngModel)]="pokemonUnu" [matAutocomplete]="auto">
+
+
+                    </div>
+
+                    <button mat-raised-button color="accent" type="submit" [disabled]="!f.valid">Battle</button>
+
+                    <div>
+                        <label for="pokemon"> Fighter 2 </label>
+                        <input style="width: 150px;" type="text" class="form-control" required ngModel name="name" #name="ngModel" [(ngModel)]="pokemonDoi" [matAutocomplete]="auto">
+
+
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="d">
+
+            <div class="battle">
+
+
+                <div class="box" *ngFor="let item of fighterOne">
+
+                    <h3>
+                        Name: {{item.name | uppercase}}
+                        <br> <br> Id: {{item.id }}
+                    </h3>
+
+                    <div class="divimg">
+
+                        <img class="imag" [src]="item.sprites.front_default" alt="">
+                    </div>
+                </div>
+                <div style="padding: 2rem;" *ngIf="versus">
+                    <img src="https://i.pinimg.com/originals/02/0d/9b/020d9bb26abec12205a4c12e82d1e795.jpg" alt="" style="width: 200px; height: 200px;">
+                </div>
+                <div class="box" *ngFor="let item of fighterTwo">
+
+                    <h3>
+                        Name: {{item.name | uppercase}}
+                        <br> <br> Id: {{item.id }}
+                    </h3>
+
+                    <div class="divimg">
+
+                        <img class="imag" [src]="item.sprites.front_default" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="versus" class="pokeWinner">
+
+            <h2>The winner is: {{ f1Power>= f2Power? pokemonUnu : pokemonDoi}} </h2>
+        </div>
+        <div *ngIf="!versus" class="pokeWinner1">
+
+            <h3>Introdu numele pokemonilor care doresti sa se bata si afla care este mai puternic</h3>
+        </div>
+
+    </div>

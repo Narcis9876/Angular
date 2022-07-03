@@ -1,0 +1,82 @@
+.battleForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10rem;
+}
+
+.d {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.battle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 3rem;
+}
+
+.box {
+    border: solid 3px rgb(248, 35, 35);
+    background-color: rgb(252, 241, 26);
+    border-radius: 30px;
+    display: inline-block;
+    padding: 2rem;
+    margin-inline: 4rem;
+    text-align: center;
+}
+
+.pokeWinner {
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+    color: rgb(27, 97, 248);
+}
+
+.anotherBattle {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.divimg {
+    background-color: rgb(58, 255, 32);
+    border-radius: 30px;
+}
+
+.pokeWinner1 {
+    display: flex;
+    justify-content: center;
+    color: rgb(217, 62, 67);
+    animation: moveInLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-in;
+    &:hover {
+        color: blueviolet;
+        position: relative;
+        bottom: 2rem;
+        letter-spacing: 0.3rem;
+        font-weight: 900;
+        margin-top: 3rem;
+    }
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    80% {
+        transform: translateX(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}

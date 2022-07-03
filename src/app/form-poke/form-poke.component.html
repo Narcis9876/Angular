@@ -1,0 +1,68 @@
+<div class="cointainer">
+    <div class="anotherBattle">
+        <button style="margin-right: 20rem;" mat-flat-button (click)="viewPokemon()" color="warn">{{!viewPoke? "Afiseaza pokemonii ": "Ascunde pokemonii"}}</button>
+
+    </div>
+    <div class="pokeadd">
+
+        <h3>Add Pokemon</h3>
+    </div>
+    <div class="form">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+                <form (ngSubmit)="storePoke()" #f="ngForm">
+                    <div id="user-data">
+                        <div class="form-goup">
+                            <label for="Name">Enter name</label>
+                            <input type="name" id="name" class="form-control" ngModel name="Name" required #name="ngModel">
+                            <span class="=help-block" *ngIf="!name.valid && name.touched">Enter a pokemon name!</span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="battle">Number of battle</label>
+                            <input type="number" id="battle" class="form-control" ngModel name="battle" required #battle="ngModel">
+                            <span class="help-block" *ngIf="!battle.value && battle.touched">Enter number of battle</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="imageURL">image URL</label>
+                            <input type="text" id="imageURL" class="form-control" ngModel name="imageURL" required #imageURL="ngModel">
+                            <span class="help-block" *ngIf="!imageURL.value && imageURL.touched">Enter image URL</span>
+                        </div>
+                        <div>
+
+                            <img [src]="imageURL.value" alt="Imagine pokemon" class="img-responsive" style="max-height: 150px; padding-bottom: 20px;">
+                        </div>
+
+                    </div>
+                    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="aa" *ngIf="viewPoke">
+
+        <div class="addedPokemon" *ngFor="let item of vector">
+            <div style="text-align: center; margin-top: 5rem;">
+                <div>
+                    <div class="bb">
+
+
+                        <h3>
+                            Pokemon name: {{item.Name}} <br> <br> Number of battle: {{item.battle}}
+                            <br>
+                        </h3>
+
+                        <div style="text-align: center; ">
+                            <img [src]="item.imageURL" style="width: 200px; height: 200px; border-radius: 20px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

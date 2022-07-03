@@ -1,0 +1,48 @@
+<div style="margin-top: 20rem;">
+
+
+    <div class="search">
+        <div class='card-body'>
+            <div class='row'>
+                <div class='col-md-2'>Filter by:</div>
+                <div class='col-md-4'>
+                    <input type='text' [(ngModel)]='listFilter'>
+                </div>
+                <button style="margin-left:7rem ; font-size: 1.5rem;" mat-button (click)="allPoke()" color="primary">
+                  {{!clicked? 'Afiseaza toti pokemonii': 'Ascunde pokemonii'}}
+                  </button>
+            </div>
+            <div class='row'>
+                <div class='col-md-6'>
+                    <h4>Ai cautat: {{listFilter}}</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="boxmodel">
+        <div class="box" *ngFor="let item of filteredProducts">
+
+
+            <h3>
+                Name: {{item.name | uppercase}}
+                <br> <br> Id: {{item.id }}
+            </h3>
+
+            <div class="divimg">
+
+                <img class="imag" [src]="item.sprites.front_default" alt="">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="clicked">
+
+    <div *ngIf="!clicked" class="onclick">
+        <app-spinner></app-spinner>
+
+    </div>
+</div>

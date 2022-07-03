@@ -1,0 +1,39 @@
+form {
+    height: auto;
+    width: 300px;
+}
+
+.pokeadd {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7rem;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.aa {
+    display: flex;
+}
+
+.bb {
+    border: 2px solid blue;
+    border-radius: 20px;
+    margin: 2rem;
+    padding: 2rem;
+    width: 25vw;
+    background-color: rgb(232, 255, 247);
+}
+
+.anotherBattle {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 20rem;
+}
